@@ -2,30 +2,29 @@ import Tag from "@/components/cards/tag/Tag";
 import { CarouselItem } from "@/components/ui/carousel";
 import { Projects, SoftwareTags } from "@/constants/Homepage";
 import { motion } from "framer-motion";
-import HeroImageWrapper from "../HeroImageWrapper/HeroImageWrapper";
+import HeroImageWrapper from "../heroImageWraper/HeroImageWrapper";
 import WidthWrapper from "@/components/layout/widthWrapper/WidthWrapper";
 import ProjectCard from "@/components/cards/project/ProjectCard";
+import BackgroundMask from "../backgroundMask/backgroundMask";
 const Software = () => {
   return (
-    <CarouselItem className="relative flex items-end pb-8 h-screen max-h-[1000px] w-full">
+    <CarouselItem
+      className="relative flex
+      items-center h-screen max-h-[1000px] w-full "
+    >
       {/* Background */}
-      <HeroImageWrapper image="/hero/0.png" />
+      <HeroImageWrapper image="/hero/5.png" />
 
-      <motion.div
-        className="absolute h-full bg-black/50 top-0 backdrop-blur-sm"
-        initial={{ width: 0, x: 5 }}
-        whileInView={{ width: "50%", x: 0 }}
-        transition={{ duration: 0.7, ease: "easeInOut" }}
-      />
+      <BackgroundMask />
 
       {/* Foreground Content */}
       <WidthWrapper>
         <div
-          className="relative z-10 grid h-full grid-cols-2
-         items-end gap-10"
+          className="relative z-10 grid  grid-cols-2
+         items-center gap-10 mt-[50px]"
         >
           {/* Slide Texts */}
-          <div className="space-y-6 flex flex-col items-end text-right">
+          <div className="space-y-6 flex flex-col items-end justify-center text-right">
             {/* heading for software slide */}
             <motion.div
               initial={{ opacity: 0, x: -10 }}
@@ -61,7 +60,7 @@ const Software = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.8 }}
-              className="flex gap-2 max-w-4xl flex-wrap justify-end"
+              className="flex gap-2 max-w-2xl flex-wrap justify-end"
             >
               {SoftwareTags.map((tag, index) => (
                 <motion.div
@@ -77,9 +76,14 @@ const Software = () => {
             </motion.div>
           </div>
           {/* Slide Project Grid */}
-          <div className="grid grid-cols-3 gap-4">
-            {Projects.slice(0, 2).map((project, index) => (
-              <ProjectCard key={index} data={project} index={index} />
+          <div className="grid grid-cols-3 items-center gap-4">
+            <div className="grid gap-4">
+              {Projects.slice(0, 2).map((project, index) => (
+                <ProjectCard key={index} data={project} index={index} />
+              ))}
+            </div>
+            {Projects.slice(0, 1).map((project, index) => (
+              <ProjectCard key={index} data={project} index={1.5} />
             ))}
           </div>
         </div>

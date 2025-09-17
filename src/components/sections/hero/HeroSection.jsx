@@ -4,16 +4,18 @@ import Autoplay from "embla-carousel-autoplay";
 
 import Software from "./slides/Software";
 import Music from "./slides/Music";
+import Fade from "embla-carousel-fade";
 
 const HeroSection = () => {
   return (
-    <section>
+    <section className="bg-black">
       <Carousel
         opts={{
           align: "start",
           loop: true,
         }}
         plugins={[
+          Fade(),
           Autoplay({
             delay: 5000,
           }),

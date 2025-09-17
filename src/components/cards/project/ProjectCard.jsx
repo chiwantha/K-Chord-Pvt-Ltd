@@ -13,7 +13,7 @@ const ProjectCard = ({ data, index = 1 }) => {
       transition={{ duration: 0.6, delay: index * 0.6 }}
       className="bg-black/50 hover:bg-slate-700/20 backdrop-blur-md 
       rounded-lg overflow-hidden 
-    shadow-md border border-slate-500/50 h-full flex flex-col "
+    shadow-md border border-slate-500/50  flex flex-col h-fit "
     >
       <div className="relative rounded.lg w-full h-full aspect-[10/7.5] ">
         <Image

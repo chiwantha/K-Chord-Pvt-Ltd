@@ -2,28 +2,24 @@ import Tag from "@/components/cards/tag/Tag";
 import { CarouselItem } from "@/components/ui/carousel";
 import { MusicTags, Projects } from "@/constants/Homepage";
 import { motion } from "framer-motion";
-import HeroImageWrapper from "../HeroImageWrapper/HeroImageWrapper";
+import HeroImageWrapper from "../heroImageWraper/HeroImageWrapper";
 import WidthWrapper from "@/components/layout/widthWrapper/WidthWrapper";
 import ProjectCard from "@/components/cards/project/ProjectCard";
+import BackgroundMask from "../backgroundMask/backgroundMask";
 
 const MusicStudio = () => {
   return (
-    <CarouselItem className="relative flex items-end pb-8 h-screen max-h-[1000px] w-full">
+    <CarouselItem className="relative flex items-center h-screen max-h-[1000px] w-full">
       {/* Background */}
       <HeroImageWrapper image="/hero/3.png" />
 
-      <motion.div
-        className="absolute h-full bg-black/50 top-0 backdrop-blur-sm"
-        initial={{ width: 0, x: 5 }}
-        whileInView={{ width: "50%", x: 0 }}
-        transition={{ duration: 0.7, ease: "easeInOut" }}
-      />
+      <BackgroundMask />
 
       {/* Foreground Content */}
       <WidthWrapper>
         <div
           className="relative z-10 grid h-full grid-cols-2 
-        items-end gap-10"
+        items-center gap-10 mt-[50px]"
         >
           <div className="space-y-6 flex flex-col items-end text-right">
             {/* heading caption music */}
@@ -61,7 +57,7 @@ const MusicStudio = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.4, delay: 0.8 }}
-              className="flex gap-2 flex-wrap max-w-4xl justify-end"
+              className="flex gap-2 flex-wrap max-w-2xl justify-end"
             >
               {MusicTags.map((tag, index) => (
                 <motion.div
@@ -77,10 +73,12 @@ const MusicStudio = () => {
             </motion.div>
           </div>
           {/* Slide Project Grid */}
-          <div className="grid grid-cols-3 gap-4">
-            {Projects.slice(2, 4).map((project, index) => (
-              <ProjectCard key={index} data={project} index={index} />
-            ))}
+          <div className="grid grid-cols-3 items-center gap-4">
+            <div className="grid gap-4">
+              {Projects.slice(2, 4).map((project, index) => (
+                <ProjectCard key={index} data={project} index={index} />
+              ))}
+            </div>
           </div>
         </div>
       </WidthWrapper>
